@@ -121,6 +121,6 @@ El desarrollo se realizó de forma incremental, con commits como:
 
 ## 9. Autor
 
-**[Nombre y Apellido]**
+**Joseph Romo**
 Ingeniería de Software – Tercer nivel
 Universidad Técnica de Ambato – FISEI
