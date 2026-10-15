@@ -89,7 +89,8 @@ java -cp out app.Main
 
 | # | Caso de prueba | Resultado esperado | Resultado obtenido |
 |---|----------------|--------------------|--------------------|
-| 1 | Árbol vacío | 0 nodos, altura -1 | [✔ / captura] |
+| 1 | Árbol vacío | 0 nodos, altura -1 | <img width="473" height="307" alt="image" src="https://github.com/user-attachments/assets/95f4f594-4da9-478d-b6ea-cd39656721c6" />
+ |
 | 2 | Árbol con un solo nodo | 1 nodo, 1 hoja, altura 0 | [✔ / captura] |
 | 3 | Árbol inicial | 9 nodos, 5 hojas, altura 3 | [✔ / captura] |
 | 4 | Insertar un hijo en una posición ocupada | Se rechaza la operación con mensaje de error | [✔ / captura] |
