@@ -37,7 +37,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    arbol = crearArbolManual(sc);
+                    arbol = crearArbolManual(sc, arbol);
                     break;
                 case 2:
                     System.out.println("--- Estructura del árbol ---");
@@ -89,20 +89,33 @@ public class Main {
     }
 
     /**
-     * Crea un árbol nuevo pidiendo al usuario cada nodo: primero la raíz y luego,
-     * por cada nodo, el padre, el lado (izquierda/derecha) y el nombre del hijo.
+     * Permite ingresar nodos uno por uno. Si ya existe un árbol, el usuario elige
+     * entre agregar nodos al árbol actual o crear uno nuevo. Para cada nodo se pide
+     * el padre, el lado (izquierdo/derecho) y el nombre; si la posición está ocupada
+     * o el padre no existe, la operación se rechaza con un mensaje de error.
      */
-    private static ArbolBinario<String> crearArbolManual(Scanner sc) {
-        ArbolBinario<String> arbol = new ArbolBinario<>();
+    private static ArbolBinario<String> crearArbolManual(Scanner sc, ArbolBinario<String> actual) {
+        ArbolBinario<String> arbol = actual;
 
-        System.out.println("--- Creación manual del árbol ---");
-        String raiz = leerTextoNoVacio(sc, "Nombre del nodo raíz: ");
-        arbol.crearRaiz(raiz);
-        System.out.println("Raíz '" + raiz + "' creada.");
+        System.out.println("--- Ingreso manual de nodos ---");
 
-        boolean continuar = true;
-        while (continuar) {
-            System.out.println();
+        if (!actual.esVacio()) {
+            System.out.println("Ya existe un árbol:");
+            actual.mostrarArbol();
+            if (leerAgregarONuevo(sc).equals("N")) {
+                arbol = new ArbolBinario<>();
+                System.out.println("Se creó un árbol nuevo (vacío).");
+            }
+        }
+
+        if (arbol.esVacio()) {
+            String raiz = leerTextoNoVacio(sc, "Nombre del nodo raíz: ");
+            arbol.crearRaiz(raiz);
+            System.out.println("Raíz '" + raiz + "' creada.");
+        }
+
+        System.out.print("\n¿Desea agregar un nodo? (S/N): ");
+        while (sc.nextLine().trim().equalsIgnoreCase("S")) {
             String padre = leerTextoNoVacio(sc, "Nombre del nodo padre: ");
 
             if (arbol.buscar(padre) == null) {
@@ -119,18 +132,29 @@ public class Main {
                     System.out.println("Nodo '" + hijo + "' agregado como hijo "
                             + (lado.equals("I") ? "izquierdo" : "derecho") + " de '" + padre + "'.");
                 } catch (IllegalStateException | IllegalArgumentException e) {
-                    System.out.println("No se pudo agregar el nodo: " + e.getMessage());
+                    System.out.println("OPERACIÓN RECHAZADA: " + e.getMessage());
                 }
             }
 
             System.out.println();
             arbol.mostrarArbol();
             System.out.print("\n¿Desea agregar otro nodo? (S/N): ");
-            continuar = sc.nextLine().trim().equalsIgnoreCase("S");
         }
 
-        System.out.println("Árbol creado con " + arbol.contarNodos() + " nodo(s).");
+        System.out.println("Árbol con " + arbol.contarNodos() + " nodo(s).");
         return arbol;
+    }
+
+    /** Pide A (agregar al árbol actual) o N (crear uno nuevo). */
+    private static String leerAgregarONuevo(Scanner sc) {
+        while (true) {
+            System.out.print("¿Agregar nodos al árbol actual (A) o crear uno nuevo (N)?: ");
+            String r = sc.nextLine().trim().toUpperCase();
+            if (r.equals("A") || r.equals("N")) {
+                return r;
+            }
+            System.out.println("Opción no válida. Escriba A o N.");
+        }
     }
 
     /** Pide el lado hasta recibir I (izquierdo) o D (derecho). */
