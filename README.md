@@ -53,18 +53,16 @@ src/
 - JDK 17 o superior
 - Visual Studio Code con *Extension Pack for Java* (opcional)
 
-### Desde la terminal
+### Desde la Git Desktop
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/[usuario]/T6-ArbolBinario-[ApellidoNombre].git
-cd T6-ArbolBinario-[ApellidoNombre]
+Copiar el HTTP desde el repositorio y clonarlo desde la opcion de URL
 
 # 2. Compilar
-javac -d out src/modelo/Nodo.java src/negocio/ArbolBinario.java src/app/Main.java
-
+Abrir en Visual Studio
 # 3. Ejecutar
-java -cp out app.Main
+Ejecutar el main para correr el codigo
 ```
 
 ### Desde Visual Studio Code
@@ -75,14 +73,18 @@ java -cp out app.Main
 ## 5. Menú del programa
 
 ```
-1. Crear el árbol inicial
+========== ÁRBOL BINARIO - DEPARTAMENTOS ==========
+1. Crear el árbol (ingresar nodos manualmente)
 2. Visualizar el árbol
 3. Consultar el número de nodos
 4. Consultar el número de hojas
 5. Consultar la altura
 6. Consultar el grado de un nodo
 7. Verificar si un nodo es hoja
-8. Salir
+8. Crear árbol predeterminado
+9. Salir
+===================================================
+Seleccione una opción:
 ```
 
 ## 6. Casos de prueba y resultados
@@ -91,36 +93,39 @@ java -cp out app.Main
 |---|----------------|--------------------|--------------------|
 | 1 | Árbol vacío | 0 nodos, altura -1 | <img width="473" height="307" alt="image" src="https://github.com/user-attachments/assets/95f4f594-4da9-478d-b6ea-cd39656721c6" />
  |
-| 2 | Árbol con un solo nodo | 1 nodo, 1 hoja, altura 0 | [✔ / captura] |
-| 3 | Árbol inicial | 9 nodos, 5 hojas, altura 3 | [✔ / captura] |
+| 2 | Árbol con un solo nodo | 1 nodo, 1 hoja, altura 0 | <img width="475" height="306" alt="image" src="https://github.com/user-attachments/assets/5e908906-3117-4eb0-aa97-640bf8971677" />
+ |
+| 3 | Árbol inicial | 9 nodos, 5 hojas, altura 3 | <img width="273" height="236" alt="image" src="https://github.com/user-attachments/assets/2ab3b357-3691-49fd-a0b9-bf424e1fdc68" />
+ |
 | 4 | Insertar un hijo en una posición ocupada | Se rechaza la operación con mensaje de error | [✔ / captura] |
-| 5 | Grado de FISEI | 2 | [✔ / captura] |
-| 6 | Grado de SOFTWARE | 2 | [✔ / captura] |
+| 5 | Grado de FISEI | 2 | <img width="258" height="100" alt="image" src="https://github.com/user-attachments/assets/17c7dc6e-bff4-4196-9e2e-895ff45e94f7" />
+ |
+| 6 | Grado de SOFTWARE | 2 |  |
 
 ## 7. Capturas de pantalla
 
 ### Ejecución del menú
-![Menú principal](capturas/menu.png)
+![Menú principal](<img width="481" height="242" alt="image" src="https://github.com/user-attachments/assets/d3bcff89-e48d-4dcf-a8b8-38511babefdf" />
+)
 
 ### Visualización del árbol
-![Árbol](capturas/arbol.png)
+![Árbol](<img width="275" height="231" alt="image" src="https://github.com/user-attachments/assets/387b2342-6bb8-4dfb-b3d0-255d0e34e380" />
+)
 
 ### Casos de prueba
-![Árbol vacío](capturas/caso1_vacio.png)
-![Un solo nodo](capturas/caso2_un_nodo.png)
-![Árbol inicial](capturas/caso3_inicial.png)
-![Posición ocupada](capturas/caso4_ocupada.png)
-![Grado de FISEI y SOFTWARE](capturas/caso5_grados.png)
+![Árbol vacío](<img width="271" height="92" alt="image" src="https://github.com/user-attachments/assets/96454bab-4f16-4057-809d-b8bf91c2cc83" />
+)
+![Un solo nodo](<img width="245" height="76" alt="image" src="https://github.com/user-attachments/assets/5106b8ce-9c32-4e1d-98c7-432d1a24c303" />
+)
+![Árbol inicial](<img width="273" height="236" alt="image" src="https://github.com/user-attachments/assets/2ab3b357-3691-49fd-a0b9-bf424e1fdc68" />)
+![Posición ocupada](<img width="797" height="247" alt="image" src="https://github.com/user-attachments/assets/8a24530a-3074-4953-b217-42db5dfc73f8" />
+)
+![Grado de FISEI y SOFTWARE](<img width="235" height="91" alt="image" src="https://github.com/user-attachments/assets/426ee85c-f2fc-4817-abb5-a492344f42b6" />
+  <img width="236" height="95" alt="image" src="https://github.com/user-attachments/assets/67f6ace1-93d3-4c31-924a-563bf849d82c" />
+)
 
-## 8. Historial de commits
 
-El desarrollo se realizó de forma incremental, con commits como:
-
-1. `[Agrega clase Nodo<T> con esHoja() y grado()]`
-2. `[Implementa ArbolBinario con inserción y operaciones recursivas]`
-3. `[Agrega menú interactivo, casos de prueba y README]`
-
-## 9. Autor
+## 8. Autor
 
 **Joseph Romo**
 Ingeniería de Software – Tercer nivel
