@@ -1,6 +1,7 @@
 package app;
 
 import java.util.Scanner;
+
 import modelo.Nodo;
 import negocio.ArbolBinario;
 
@@ -36,8 +37,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    arbol = construirArbolInicial();
-                    System.out.println("Árbol inicial creado correctamente.");
+                    arbol = crearArbolManual(sc);
                     break;
                 case 2:
                     System.out.println("--- Estructura del árbol ---");
@@ -59,12 +59,16 @@ public class Main {
                     verificarHoja(sc, arbol);
                     break;
                 case 8:
+                    arbol = construirArbolInicial();
+                    System.out.println("Árbol predeterminado creado correctamente.");
+                    break;
+                case 9:
                     System.out.println("Fin del programa.");
                     break;
                 default:
                     System.out.println("Opción no válida. Intente de nuevo.");
             }
-        } while (opcion != 8);
+        } while (opcion != 9);
 
         sc.close();
     }
@@ -72,15 +76,83 @@ public class Main {
     private static void mostrarMenu() {
         System.out.println();
         System.out.println("========== ÁRBOL BINARIO - DEPARTAMENTOS ==========");
-        System.out.println("1. Crear el árbol inicial");
+        System.out.println("1. Crear el árbol (ingresar nodos manualmente)");
         System.out.println("2. Visualizar el árbol");
         System.out.println("3. Consultar el número de nodos");
         System.out.println("4. Consultar el número de hojas");
         System.out.println("5. Consultar la altura");
         System.out.println("6. Consultar el grado de un nodo");
         System.out.println("7. Verificar si un nodo es hoja");
-        System.out.println("8. Salir");
+        System.out.println("8. Crear árbol predeterminado");
+        System.out.println("9. Salir");
         System.out.println("===================================================");
+    }
+
+    /**
+     * Crea un árbol nuevo pidiendo al usuario cada nodo: primero la raíz y luego,
+     * por cada nodo, el padre, el lado (izquierda/derecha) y el nombre del hijo.
+     */
+    private static ArbolBinario<String> crearArbolManual(Scanner sc) {
+        ArbolBinario<String> arbol = new ArbolBinario<>();
+
+        System.out.println("--- Creación manual del árbol ---");
+        String raiz = leerTextoNoVacio(sc, "Nombre del nodo raíz: ");
+        arbol.crearRaiz(raiz);
+        System.out.println("Raíz '" + raiz + "' creada.");
+
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println();
+            String padre = leerTextoNoVacio(sc, "Nombre del nodo padre: ");
+
+            if (arbol.buscar(padre) == null) {
+                System.out.println("El nodo '" + padre + "' no existe en el árbol.");
+            } else {
+                String lado = leerLado(sc);
+                String hijo = leerTextoNoVacio(sc, "Nombre del nuevo nodo: ");
+                try {
+                    if (lado.equals("I")) {
+                        arbol.agregarIzquierdo(padre, hijo);
+                    } else {
+                        arbol.agregarDerecho(padre, hijo);
+                    }
+                    System.out.println("Nodo '" + hijo + "' agregado como hijo "
+                            + (lado.equals("I") ? "izquierdo" : "derecho") + " de '" + padre + "'.");
+                } catch (IllegalStateException | IllegalArgumentException e) {
+                    System.out.println("No se pudo agregar el nodo: " + e.getMessage());
+                }
+            }
+
+            System.out.println();
+            arbol.mostrarArbol();
+            System.out.print("\n¿Desea agregar otro nodo? (S/N): ");
+            continuar = sc.nextLine().trim().equalsIgnoreCase("S");
+        }
+
+        System.out.println("Árbol creado con " + arbol.contarNodos() + " nodo(s).");
+        return arbol;
+    }
+
+    /** Pide el lado hasta recibir I (izquierdo) o D (derecho). */
+    private static String leerLado(Scanner sc) {
+        while (true) {
+            System.out.print("¿En qué lado? (I = izquierdo, D = derecho): ");
+            String lado = sc.nextLine().trim().toUpperCase();
+            if (lado.equals("I") || lado.equals("D")) {
+                return lado;
+            }
+            System.out.println("Opción no válida. Escriba I o D.");
+        }
+    }
+
+    /** Pide un texto hasta que no esté vacío. */
+    private static String leerTextoNoVacio(Scanner sc, String mensaje) {
+        String texto = leerTexto(sc, mensaje);
+        while (texto.isEmpty()) {
+            System.out.println("El nombre no puede estar vacío.");
+            texto = leerTexto(sc, mensaje);
+        }
+        return texto;
     }
 
     private static void consultarGrado(Scanner sc, ArbolBinario<String> arbol) {
