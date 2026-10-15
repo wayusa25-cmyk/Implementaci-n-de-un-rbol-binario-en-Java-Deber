@@ -93,15 +93,21 @@ Seleccione una opción:
 |---|----------------|--------------------|--------------------|
 | 1 | Árbol vacío | 0 nodos, altura -1 | <img width="473" height="307" alt="image" src="https://github.com/user-attachments/assets/95f4f594-4da9-478d-b6ea-cd39656721c6" />
  |
+ 
 | 2 | Árbol con un solo nodo | 1 nodo, 1 hoja, altura 0 | <img width="475" height="306" alt="image" src="https://github.com/user-attachments/assets/5e908906-3117-4eb0-aa97-640bf8971677" />
  |
+ 
 | 3 | Árbol inicial | 9 nodos, 5 hojas, altura 3 | <img width="273" height="236" alt="image" src="https://github.com/user-attachments/assets/2ab3b357-3691-49fd-a0b9-bf424e1fdc68" />
  |
+ 
 | 4 | Insertar un hijo en una posición ocupada | Se rechaza la operación con mensaje de error | <img width="793" height="245" alt="image" src="https://github.com/user-attachments/assets/d65963be-0e5b-4586-b36d-85f9fe217fe8" />
  |
+ 
 | 5 | Grado de FISEI | 2 | <img width="258" height="100" alt="image" src="https://github.com/user-attachments/assets/17c7dc6e-bff4-4196-9e2e-895ff45e94f7" />
  |
-| 6 | Grado de SOFTWARE | 2 |  |
+ 
+| 6 | Grado de SOFTWARE | 2 | <img width="247" height="96" alt="image" src="https://github.com/user-attachments/assets/bbe35bd9-d2fd-47eb-b7b7-ab17099b172e" />
+ |
 
 ## 7. Capturas de pantalla
 
@@ -122,7 +128,8 @@ Seleccione una opción:
 ![Posición ocupada](<img width="797" height="247" alt="image" src="https://github.com/user-attachments/assets/8a24530a-3074-4953-b217-42db5dfc73f8" />
 )
 ![Grado de FISEI y SOFTWARE](<img width="235" height="91" alt="image" src="https://github.com/user-attachments/assets/426ee85c-f2fc-4817-abb5-a492344f42b6" />
-  <img width="236" height="95" alt="image" src="https://github.com/user-attachments/assets/67f6ace1-93d3-4c31-924a-563bf849d82c" />
+
+<img width="236" height="95" alt="image" src="https://github.com/user-attachments/assets/67f6ace1-93d3-4c31-924a-563bf849d82c" />
 )
 
 
