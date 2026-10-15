@@ -97,7 +97,8 @@ Seleccione una opción:
  |
 | 3 | Árbol inicial | 9 nodos, 5 hojas, altura 3 | <img width="273" height="236" alt="image" src="https://github.com/user-attachments/assets/2ab3b357-3691-49fd-a0b9-bf424e1fdc68" />
  |
-| 4 | Insertar un hijo en una posición ocupada | Se rechaza la operación con mensaje de error | [✔ / captura] |
+| 4 | Insertar un hijo en una posición ocupada | Se rechaza la operación con mensaje de error | <img width="793" height="245" alt="image" src="https://github.com/user-attachments/assets/d65963be-0e5b-4586-b36d-85f9fe217fe8" />
+ |
 | 5 | Grado de FISEI | 2 | <img width="258" height="100" alt="image" src="https://github.com/user-attachments/assets/17c7dc6e-bff4-4196-9e2e-895ff45e94f7" />
  |
 | 6 | Grado de SOFTWARE | 2 |  |
